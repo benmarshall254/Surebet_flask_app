@@ -691,3 +691,28 @@ def api_statistics():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
+
+@app.route("/admin")
+def admin():
+    return render_template_string(f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Panel - SureBet Pro</title>
+        {BASE_STYLES}
+    </head>
+    <body>
+        {NAVIGATION_TEMPLATE}
+        <div class="container">
+            <div class="main-content">
+                <div class="card">
+                    <h2>⚙️ Admin Panel</h2>
+                    <p>This is a placeholder admin dashboard. Add controls and functionality here.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    """)
