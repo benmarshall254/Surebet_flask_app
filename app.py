@@ -669,3 +669,25 @@ def api_predictions():
         "data": SAMPLE_PREDICTIONS,
         "last_updated": datetime.now().isoformat()
     })
+
+@app.route("/api/statistics")
+def api_statistics():
+    """API endpoint to get statistics as JSON"""
+    return jsonify({
+        "status": "success",
+        "data": {
+            "overall_accuracy": 87,
+            "successful_predictions": 156,
+            "average_odds": 2.4,
+            "tracking_days": 30,
+            "monthly_performance": {
+                "may_2025": 92,
+                "april_2025": 89,
+                "march_2025": 85
+            }
+        },
+        "last_updated": datetime.now().isoformat()
+    })
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000)
